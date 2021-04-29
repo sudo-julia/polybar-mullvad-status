@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # format mullvad status to a better looking printable format
-mullvad_status="$( mullvad status | cut -d' ' -f2-3 | sed 's/status:/VPN/' )"
+mullvad_status="$( mullvad status | cut -d' ' -f3 )"
 
 # log the most recent mullvad status
 status_file="${XDG_CONFIG_HOME}/polybar/.mullvad_status.last"
@@ -21,4 +21,4 @@ send_notification() {
   fi
 }
 
-send_notification "$mullvad_status"
+send_notification "VPN $mullvad_status"
