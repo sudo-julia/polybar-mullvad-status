@@ -5,8 +5,8 @@ set -eo pipefail
 mullvad_status="$( mullvad status | cut -d' ' -f3 )"
 
 # log the most recent mullvad status
-if [[ "${POLYBAR_MULLVAD_STATUS}" ]]; then
-    status_file="${POLYBAR_MULLVAD_STATUS}"
+if [[ "${POLYBAR_MULLVAD_STATUSFILE}" ]]; then
+    status_file="${POLYBAR_MULLVAD_STATUSFILE}"
 else
     status_file="/tmp/mullvad_status.last"
 fi
